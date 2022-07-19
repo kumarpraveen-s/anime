@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("watchList"));
-    if (items.length > 0) {
+    if (items && items.length > 0) {
       setWatchList(items);
     }
   }, []);

@@ -42,6 +42,10 @@ function App() {
     }
   };
 
+  const handleReset = () => {
+    setAnimeData(Data);
+  };
+
   const removeItemFromWatchList = (id) => {
     const newArr = watchList.filter((i) => i.mal_id !== id);
     setWatchList(newArr);
@@ -51,7 +55,22 @@ function App() {
     <>
       <Header func={SearchFunction} />
       <h2 style={{ padding: "20px" }}>Anime videos</h2>
-      {animeData.length === 0 && <h3>No Data Found</h3>}
+      {animeData.length === 0 && (
+        <h3 style={{ padding: "20px" }}>
+          No Data Found{" "}
+          <button
+            onClick={handleReset}
+            style={{
+              width: "50px",
+              height: "30px",
+              marginLeft: "10px",
+              borderRadius: "5px",
+            }}
+          >
+            Reset
+          </button>
+        </h3>
+      )}
       {animeData.length > 0 && (
         <Container data={animeData} func={AddItemtoWatchList} />
       )}

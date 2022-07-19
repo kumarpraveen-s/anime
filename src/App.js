@@ -10,6 +10,17 @@ function App() {
   const [watchList, setWatchList] = useState([]);
 
   useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("watchList"));
+    if (items.length > 0) {
+      setWatchList(items);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("watchList", JSON.stringify(watchList));
+  }, [watchList]);
+
+  useEffect(() => {
     if (searchValue) {
       const newArr = Data.filter((i) =>
         i.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -27,16 +38,12 @@ function App() {
   const AddItemtoWatchList = (value) => {
     if (!watchList.includes(value)) {
       const arr = [value, ...watchList];
-      localStorage.setItem("data", JSON.stringify(arr));
       setWatchList(arr);
     }
   };
 
   const removeItemFromWatchList = (id) => {
-    const arr = localStorage.getItem("data");
-    console.log(JSON.parse(arr));
-    const newArr = JSON.parse(arr).filter((i) => i.mal_id !== id);
-    localStorage.setItem("data", JSON.stringify(newArr));
+    const newArr = watchList.filter((i) => i.mal_id !== id);
     setWatchList(newArr);
   };
 

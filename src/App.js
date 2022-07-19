@@ -51,7 +51,7 @@ function App() {
     <>
       <Header func={SearchFunction} />
       <h2 style={{ padding: "20px" }}>Anime videos</h2>
-      {animeData.length === 0 && <h3>Loading...</h3>}
+      {animeData.length === 0 && <h3>No Data Found</h3>}
       {animeData.length > 0 && (
         <Container data={animeData} func={AddItemtoWatchList} />
       )}

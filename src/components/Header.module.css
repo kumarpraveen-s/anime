@@ -1,0 +1,29 @@
+.container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.form {
+  width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0 0 0 20px;
+}
+
+.form button,
+.form input {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.icon:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

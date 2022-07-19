@@ -3,11 +3,11 @@ import Container from "./components/Container";
 import Header from "./components/Header";
 import WatchList from "./components/WatchList";
 import Data from "./components/data.json";
-const storageData = localStorage.getItem("data");
+
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [animeData, setAnimeData] = useState(Data);
-  const [watchList, setWatchList] = useState(JSON.parse(storageData));
+  const [watchList, setWatchList] = useState([]);
 
   useEffect(() => {
     if (searchValue) {
